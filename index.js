@@ -32,16 +32,16 @@ const generateChangelog = () => {
           const getMerges = spawnSync("git", [
             "log",
             "--merges",
-            "--pretty=%s|%b ([%an](mailto://%ae))",
+            "--pretty=%s|%b ([%an](mailto://%ae))=====",
             lastHash ? `${lastHash}..${hash}` : hash
           ]);
           lastHash = hash;
 
           const merges = getMerges.stdout
                 .toString()
-                .split("\n")
+                .split("=====\n")
                 .filter(line => line && line.startsWith('Merge pull request'))
-                .map(line => line.replace(/Merge pull request #(\S+) from [^|]+\|(.+)/, `[#$1](${repositoryUrl}/pull/$1) $2`))
+                .map(line => line.replace(/\n/g, '').replace(/Merge pull request #(\S+) from [^|]+\|(.+)/, `[#$1](${repositoryUrl}/pull/$1) $2`))
 
           return {
             tag,
