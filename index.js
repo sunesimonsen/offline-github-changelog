@@ -32,7 +32,7 @@ const generateChangelog = () => {
           const getMerges = spawnSync("git", [
             "log",
             "--merges",
-            "--pretty=%s|%b ([%an](mailto://%ae))=====",
+            "--pretty=%s|%b ([%an](mailto:%ae))=====",
             lastHash ? `${lastHash}..${hash}` : hash
           ]);
           lastHash = hash;
