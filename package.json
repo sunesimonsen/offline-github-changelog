@@ -1,6 +1,6 @@
 {
   "name": "offline-github-changelog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A changelog generator for Github projects that only uses the Git history",
   "main": "index.js",
   "repository": {
@@ -19,7 +19,9 @@
     "url": "https://github.com/sunesimonsen/offline-github-changelog/issues"
   },
   "homepage": "https://github.com/sunesimonsen/offline-github-changelog#readme",
-  "engines" : { "node" : ">=6.9.1" },
+  "engines": {
+    "node": ">=6.9.1"
+  },
   "bin": {
     "offline-github-changelog": "./bin/offline-github-changelog"
   }
