@@ -21,6 +21,6 @@
   "homepage": "https://github.com/sunesimonsen/offline-github-changelog#readme",
   "engines" : { "node" : ">=6.9.1" },
   "bin": {
-    "offline-changelog-generator": "./bin/offline-github-changelog"
+    "offline-github-changelog": "./bin/offline-github-changelog"
   }
 }
