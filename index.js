@@ -1,6 +1,18 @@
 const { spawnSync } = require("child_process");
 
 const generateChangelog = () => {
+  const getOrigin = spawnSync("git", [
+    'remote',
+    'get-url',
+    'origin'
+  ])
+
+  const repositoryUrl = getOrigin.stdout.
+        toString()
+        .replace(/^git@github.com:/, 'https://github.com/')
+        .replace(/\n/g, '')
+        .replace(/.git$/, '')
+
   const getTags = spawnSync("git", [
     "for-each-ref",
     "--sort=taggerdate",
@@ -29,7 +41,7 @@ const generateChangelog = () => {
                 .toString()
                 .split("\n")
                 .filter(line => line && line.startsWith('Merge pull request'))
-                .map(line => line.replace(/Merge pull request (\S+ )from [^|]+\|/, "$1"));
+                .map(line => line.replace(/Merge pull request #(\S+) from [^|]+\|(.+)/, `[#$1](${repositoryUrl}/pull/$1) $2`))
 
           return {
             tag,
