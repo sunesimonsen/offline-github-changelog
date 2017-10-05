@@ -1,0 +1,22 @@
+{
+  "name": "offline-github-changelog",
+  "version": "1.0.0",
+  "description": "A changelog generator for Github projects that only uses the Git history",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sunesimonsen/offline-github-changelog.git"
+  },
+  "keywords": [
+    "changelog",
+    "github",
+    "offline",
+    "local"
+  ],
+  "author": "Sune Simonsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sunesimonsen/offline-github-changelog/issues"
+  },
+  "homepage": "https://github.com/sunesimonsen/offline-github-changelog#readme"
+}
