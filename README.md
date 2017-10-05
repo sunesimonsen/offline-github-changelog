@@ -2,6 +2,8 @@
 
 This is a changelog generator for Github projects. It generates markdown based on your version tags and pull request merges.
 
+Example [unexpected.js.org changelog](https://github.com/unexpectedjs/unexpected/blob/master/CHANGELOG.md).
+
 ### Installation
 
 ```sh
