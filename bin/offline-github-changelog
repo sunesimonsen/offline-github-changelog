@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
-const generateChangelog = require('../index');
+const { generateChangelog, extractOrigin } = require('../index');
+const origin = extractOrigin();
 
-generateChangelog();
+try {
+  generateChangelog(origin);
+} catch(e) {
+  console.error(e);
+  process.exit(1);
+}
