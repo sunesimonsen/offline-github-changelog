@@ -24,5 +24,8 @@
   },
   "bin": {
     "offline-github-changelog": "./bin/offline-github-changelog"
+  },
+  "dependencies": {
+    "markdown-escape": "^1.0.2"
   }
 }
