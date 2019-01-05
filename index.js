@@ -1,4 +1,5 @@
 const { spawnSync } = require("child_process");
+const markdownEscape = require("markdown-escape");
 
 const generateChangelog = () => {
   const getOrigin = spawnSync("git", ["remote", "get-url", "origin"]);
@@ -79,7 +80,7 @@ const generateChangelog = () => {
       console.log(`### ${tag} (${date})\n`);
       merges.forEach(({ authors, mergeAuthor, message, pullRequestNumber }) => {
         console.log(
-          `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${message} (${authors.join(
+          `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(message)} (${authors.join(
             ", "
           )})`
         );
