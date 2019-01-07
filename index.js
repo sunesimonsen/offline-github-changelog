@@ -1,8 +1,8 @@
 const { spawnSync } = require("child_process");
 const markdownEscape = require("markdown-escape");
 
-const generateChangelog = () => {
-  const getOrigin = spawnSync("git", ["remote", "get-url", "origin"]);
+const generateChangelog = (originName) => {
+  const getOrigin = spawnSync("git", ["remote", "get-url", originName]);
 
   const repositoryUrl = getOrigin.stdout
     .toString()
@@ -91,4 +91,4 @@ const generateChangelog = () => {
   });
 };
 
-module.exports = generateChangelog;
+module.exports = { generateChangelog };

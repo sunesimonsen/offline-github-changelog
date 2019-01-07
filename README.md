@@ -14,6 +14,9 @@ npm install offline-github-changelog
 
 ```sh
 offline-github-changelog > CHANGELOG.md
+
+# with a different remote
+offline-github-changelog --remote=myremote > CHANGELOG.md
 ```
 
 ### License (MIT)
