@@ -26,14 +26,14 @@ const generateChangelog = (originName) => {
     .map(line => {
       const [tag, date, hash] = line.split("|");
 
+      const commitRange = lastHash ? `${lastHash}..${hash}` : hash;
+
       const getMerges = spawnSync("git", [
         "log",
         "--merges",
         "--pretty=%s|||||%b|||||%H|||||[%an](mailto:%ae)|||||%P=====",
-        lastHash ? `${lastHash}..${hash}` : hash
+        commitRange
       ]);
-
-      lastHash = hash;
 
       const merges = getMerges.stdout
         .toString()
@@ -68,21 +68,53 @@ const generateChangelog = (originName) => {
           };
         });
 
+      const getRegularCommits = spawnSync("git", [
+        "log",
+        "--no-merges",
+        "--first-parent",
+        "--pretty=%s|||||%b|||||%H|||||[%an](mailto:%ae)|||||%P=====",
+        commitRange
+      ]);
+
+      const regularCommits = getRegularCommits.stdout
+        .toString()
+        .split("=====\n")
+        // Crudely skip version commits (with "x.y.z" message):
+        .filter(line => line && !/^[\d+.-]+\|\|\|\|\|/.test(line))
+        .map(line => line.replace(/\n/g, ""))
+        .map(line => line.split("|||||"))
+        .map(([message, body, commitHash, author]) => {
+          return {
+            author,
+            message,
+            commitHash
+          };
+        });
+
+      lastHash = hash;
+
       return {
         tag,
         date,
-        merges
+        merges,
+        regularCommits
       };
     });
 
-  tags.reverse().forEach(({ tag, date, merges }) => {
-    if (merges.length > 0) {
-      console.log(`### ${tag} (${date})\n`);
+  tags.reverse().forEach(({ tag, date, merges, regularCommits }) => {
+    if (merges.length > 0 || regularCommits.length > 0) {
       merges.forEach(({ authors, mergeAuthor, message, pullRequestNumber }) => {
+      console.log(`### ${tag} (${date})\n`);
         console.log(
           `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(message)} (${authors.join(
             ", "
           )})`
+        );
+      });
+
+      regularCommits.forEach(({ author, message, commitHash }) => {
+        console.log(
+          `- [${markdownEscape(message)}](${repositoryUrl}/commit/${commitHash}) (${author})`
         );
       });
 
