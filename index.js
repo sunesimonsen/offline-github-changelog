@@ -1,5 +1,6 @@
 const { spawnSync } = require("child_process");
 const markdownEscape = require("markdown-escape");
+const MAX_REGULAR_COMMITS_PER_RELEASE = 5;
 
 const generateChangelog = (originName) => {
   const getOrigin = spawnSync("git", ["remote", "get-url", originName]);
@@ -99,12 +100,12 @@ const generateChangelog = (originName) => {
         merges,
         regularCommits
       };
-    });
+    }).reverse();
 
-  tags.reverse().forEach(({ tag, date, merges, regularCommits }) => {
+  tags.forEach(({ tag, date, merges, regularCommits }, i) => {
     if (merges.length > 0 || regularCommits.length > 0) {
-      merges.forEach(({ authors, mergeAuthor, message, pullRequestNumber }) => {
       console.log(`### ${tag} (${date})\n`);
+      merges.forEach(({ authors, mergeAuthor, message, pullRequestNumber }) => {
         console.log(
           `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(message)} (${authors.join(
             ", "
@@ -112,11 +113,23 @@ const generateChangelog = (originName) => {
         );
       });
 
-      regularCommits.forEach(({ author, message, commitHash }) => {
+      regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE).forEach(({ author, message, commitHash }) => {
         console.log(
           `- [${markdownEscape(message)}](${repositoryUrl}/commit/${commitHash}) (${author})`
         );
       });
+      if (regularCommits.length > MAX_REGULAR_COMMITS_PER_RELEASE) {
+        let compareFrom;
+        if (i === tags.length - 1) {
+          compareFrom = `${regularCommits[0].commitHash}^`;
+        } else {
+          compareFrom = tags[i + 1].tag;
+        }
+        const targetUrl = `${repositoryUrl}/compare/${encodeURIComponent(compareFrom)}...${encodeURIComponent(tag)}`;
+        console.log(
+          `- [+${regularCommits.length - MAX_REGULAR_COMMITS_PER_RELEASE} more](${targetUrl})`
+        );
+      }
 
       console.log();
     }
