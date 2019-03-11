@@ -48,18 +48,17 @@ const generateChangelog = (originName) => {
           )[1];
           const [from, to] = parents.split(" ");
 
-          const authors = new Set();
           const getAuthors = spawnSync("git", [
             "log",
             "--pretty=[%an](mailto:%ae)",
             `${from}..${to}`
           ]);
 
-          getAuthors.stdout
+          const authors = new Set(getAuthors.stdout
             .toString()
             .split("\n")
             .filter(line => line)
-            .forEach(author => authors.add(author));
+          );
 
           return {
             authors: Array.from(authors).sort(),
@@ -102,22 +101,22 @@ const generateChangelog = (originName) => {
       };
     }).reverse();
 
-  tags.forEach(({ tag, date, merges, regularCommits }, i) => {
+  for (const [i, { tag, date, merges, regularCommits }] of tags.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
       console.log(`### ${tag} (${date})\n`);
-      merges.forEach(({ authors, mergeAuthor, message, pullRequestNumber }) => {
+      for (const { authors, mergeAuthor, message, pullRequestNumber } of merges) {
         console.log(
           `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(message)} (${authors.join(
             ", "
           )})`
         );
-      });
+      }
 
-      regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE).forEach(({ author, message, commitHash }) => {
+      for (const { author, message, commitHash } of regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE)) {
         console.log(
           `- [${markdownEscape(message)}](${repositoryUrl}/commit/${commitHash}) (${author})`
         );
-      });
+      }
       if (regularCommits.length > MAX_REGULAR_COMMITS_PER_RELEASE) {
         let compareFrom;
         if (i === tags.length - 1) {
@@ -133,7 +132,7 @@ const generateChangelog = (originName) => {
 
       console.log();
     }
-  });
+  }
 };
 
 module.exports = { generateChangelog };
