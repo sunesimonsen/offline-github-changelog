@@ -103,31 +103,48 @@ const generateChangelog = (originName) => {
 
   for (const [i, { tag, date, merges, regularCommits }] of tags.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
-      console.log(`### ${tag} (${date})\n`);
-      for (const { authors, mergeAuthor, message, pullRequestNumber } of merges) {
-        console.log(
-          `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(message)} (${authors.join(
-            ", "
-          )})`
-        );
+      console.log(`### ${tag} (${date})`);
+      if (merges.length > 0) {
+        console.log(`\n#### Pull requests\n`);
+        for (const {
+          authors,
+          mergeAuthor,
+          message,
+          pullRequestNumber
+        } of merges) {
+          console.log(
+            `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(
+              message
+            )} (${authors.join(", ")})`
+          );
+        }
       }
 
-      for (const { author, message, commitHash } of regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE)) {
-        console.log(
-          `- [${markdownEscape(message)}](${repositoryUrl}/commit/${commitHash}) (${author})`
-        );
-      }
-      if (regularCommits.length > MAX_REGULAR_COMMITS_PER_RELEASE) {
-        let compareFrom;
-        if (i === tags.length - 1) {
-          compareFrom = `${regularCommits[0].commitHash}^`;
-        } else {
-          compareFrom = tags[i + 1].tag;
+      if (regularCommits.length > 0) {
+        console.log(`\n#### Commits to master\n`);
+
+        for (const { author, message, commitHash } of regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE)) {
+          console.log(
+            `- [${markdownEscape(
+              message
+            )}](${repositoryUrl}/commit/${commitHash}) (${author})`
+          );
         }
-        const targetUrl = `${repositoryUrl}/compare/${encodeURIComponent(compareFrom)}...${encodeURIComponent(tag)}`;
-        console.log(
-          `- [+${regularCommits.length - MAX_REGULAR_COMMITS_PER_RELEASE} more](${targetUrl})`
-        );
+        if (regularCommits.length > MAX_REGULAR_COMMITS_PER_RELEASE) {
+          let compareFrom;
+          if (i === tags.length - 1) {
+            compareFrom = `${regularCommits[0].commitHash}^`;
+          } else {
+            compareFrom = tags[i + 1].tag;
+          }
+          const targetUrl = `${repositoryUrl}/compare/${encodeURIComponent(
+            compareFrom
+          )}...${encodeURIComponent(tag)}`;
+          console.log(
+            `- [+${regularCommits.length -
+              MAX_REGULAR_COMMITS_PER_RELEASE} more](${targetUrl})`
+          );
+        }
       }
 
       console.log();
