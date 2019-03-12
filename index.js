@@ -105,7 +105,10 @@ const generateChangelog = (originName) => {
     if (merges.length > 0 || regularCommits.length > 0) {
       console.log(`### ${tag} (${date})`);
       if (merges.length > 0) {
-        console.log(`\n#### Pull requests\n`);
+        if (regularCommits.length > 0) {
+          console.log(`\n#### Pull requests\n`);
+        }
+
         for (const {
           authors,
           mergeAuthor,
@@ -121,7 +124,9 @@ const generateChangelog = (originName) => {
       }
 
       if (regularCommits.length > 0) {
-        console.log(`\n#### Commits to master\n`);
+        if (merges.length > 0) {
+          console.log(`\n#### Commits to master\n`);
+        }
 
         for (const { author, message, commitHash } of regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE)) {
           console.log(
