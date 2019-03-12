@@ -103,10 +103,10 @@ const generateChangelog = (originName) => {
 
   for (const [i, { tag, date, merges, regularCommits }] of tags.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
-      console.log(`### ${tag} (${date})`);
+      console.log(`### ${tag} (${date})\n`);
       if (merges.length > 0) {
         if (regularCommits.length > 0) {
-          console.log(`\n#### Pull requests\n`);
+          console.log(`#### Pull requests\n`);
         }
 
         for (const {
@@ -121,11 +121,12 @@ const generateChangelog = (originName) => {
             )} (${authors.join(", ")})`
           );
         }
+        console.log();
       }
 
       if (regularCommits.length > 0) {
         if (merges.length > 0) {
-          console.log(`\n#### Commits to master\n`);
+          console.log(`#### Commits to master\n`);
         }
 
         for (const { author, message, commitHash } of regularCommits.slice(0, MAX_REGULAR_COMMITS_PER_RELEASE)) {
@@ -150,9 +151,8 @@ const generateChangelog = (originName) => {
               MAX_REGULAR_COMMITS_PER_RELEASE} more](${targetUrl})`
           );
         }
+        console.log();
       }
-
-      console.log();
     }
   }
 };
