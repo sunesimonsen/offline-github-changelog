@@ -111,7 +111,6 @@ const generateChangelog = (originName) => {
 
         for (const {
           authors,
-          mergeAuthor,
           message,
           pullRequestNumber
         } of merges) {
