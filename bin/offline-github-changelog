@@ -2,15 +2,15 @@
 
 const cli = require('meow')(
   `
-	Usage
-		$ offline-github-changelog
+  Usage
+    $ offline-github-changelog
 
-	Options
-		--remote, -r  Specify the remote
+  Options
+    --remote, -r  Specify the remote
 
-	Examples
-		$ offline-github-changelog > CHANGELOG.md
-		$ offline-github-changelog --remote=myremote > CHANGELOG.md
+  Examples
+    $ offline-github-changelog > CHANGELOG.md
+    $ offline-github-changelog --remote=myremote > CHANGELOG.md
 `,
   {
     flags: {
