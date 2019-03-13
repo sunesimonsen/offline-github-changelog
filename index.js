@@ -2,7 +2,7 @@ const { spawnSync } = require('child_process');
 const markdownEscape = require('markdown-escape');
 const MAX_REGULAR_COMMITS_PER_RELEASE = 5;
 
-const generateChangelog = originName => {
+const generateChangelog = (originName, next) => {
   const getOrigin = spawnSync('git', ['remote', 'get-url', originName]);
 
   const repositoryUrl = getOrigin.stdout
@@ -19,15 +19,29 @@ const generateChangelog = originName => {
     'refs/tags'
   ]);
 
-  let lastHash = null;
-  const tags = getTags.stdout
+  let lastCommittish = null;
+  const tagInfos = getTags.stdout
     .toString()
     .split('\n')
     .filter(line => line && line.match(/^v?[0-9]+\.[0-9]+\.[0-9]+\|/))
     .map(line => {
-      const [tag, date, hash] = line.split('|');
+      const [tag, date, committish] = line.split('|');
+      return { tag, date, committish };
+    });
 
-      const commitRange = lastHash ? `${lastHash}..${hash}` : hash;
+  if (next) {
+    tagInfos.push({
+      tag: next.replace(/^v?/, 'v'), // Ensure leading v
+      date: new Date().toJSON().replace(/T.*$/, ''), // Today in YYYY-MM-DD
+      committish: 'master'
+    });
+  }
+
+  const releaseInfos = tagInfos
+    .map(({ tag, date, committish }) => {
+      const commitRange = lastCommittish
+        ? `${lastCommittish}..${committish}`
+        : committish;
 
       const getMerges = spawnSync('git', [
         'log',
@@ -92,7 +106,7 @@ const generateChangelog = originName => {
           };
         });
 
-      lastHash = hash;
+      lastCommittish = committish;
 
       return {
         tag,
@@ -103,7 +117,10 @@ const generateChangelog = originName => {
     })
     .reverse();
 
-  for (const [i, { tag, date, merges, regularCommits }] of tags.entries()) {
+  for (const [
+    i,
+    { tag, date, merges, regularCommits }
+  ] of releaseInfos.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
       console.log(`### ${tag} (${date})\n`);
       if (merges.length > 0) {
@@ -138,10 +155,10 @@ const generateChangelog = originName => {
         }
         if (regularCommits.length > MAX_REGULAR_COMMITS_PER_RELEASE) {
           let compareFrom;
-          if (i === tags.length - 1) {
+          if (i === releaseInfos.length - 1) {
             compareFrom = `${regularCommits[0].commitHash}^`;
           } else {
-            compareFrom = tags[i + 1].tag;
+            compareFrom = releaseInfos[i + 1].tag;
           }
           const targetUrl = `${repositoryUrl}/compare/${encodeURIComponent(
             compareFrom
