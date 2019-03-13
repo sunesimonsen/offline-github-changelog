@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "markdown-escape": "^1.0.2",
-    "meow": "5.0.0"
+    "meow": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^5.15.1",
