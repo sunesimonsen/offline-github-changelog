@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const cli = require('meow')(`
+const cli = require('meow')(
+  `
 	Usage
 		$ offline-github-changelog
 
@@ -10,22 +11,24 @@ const cli = require('meow')(`
 	Examples
 		$ offline-github-changelog > CHANGELOG.md
 		$ offline-github-changelog --remote=myremote > CHANGELOG.md
-`, {
-	flags: {
-		remote: {
-			type: 'string',
-			alias: 'r',
-			default: 'origin'
-		}
-	}
-});
+`,
+  {
+    flags: {
+      remote: {
+        type: 'string',
+        alias: 'r',
+        default: 'origin'
+      }
+    }
+  }
+);
 
 const { generateChangelog } = require('../index');
 const remote = cli.flags.remote;
 
 try {
   generateChangelog(remote);
-} catch(e) {
+} catch (e) {
   console.error(e);
   process.exit(1);
 }
