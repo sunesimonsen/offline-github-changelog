@@ -27,6 +27,20 @@
   },
   "dependencies": {
     "markdown-escape": "^1.0.2",
-    "meow": "5.0.0"
+    "meow": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
+    "ci": "npm run lint"
   }
 }
