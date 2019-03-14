@@ -7,10 +7,12 @@ const cli = require('meow')(
 
   Options
     --remote, -r  Specify the remote
+    --next        Specify the version about to be released
 
   Examples
     $ offline-github-changelog > CHANGELOG.md
     $ offline-github-changelog --remote=myremote > CHANGELOG.md
+    $ offline-github-changelog --next=1.2.4 > CHANGELOG.md
 `,
   {
     flags: {
@@ -18,16 +20,19 @@ const cli = require('meow')(
         type: 'string',
         alias: 'r',
         default: 'origin'
+      },
+      next: {
+        type: 'string'
       }
     }
   }
 );
 
 const { generateChangelog } = require('../index');
-const remote = cli.flags.remote;
+const { remote, next } = cli.flags;
 
 try {
-  generateChangelog(remote);
+  generateChangelog(remote, next);
 } catch (e) {
   console.error(e);
   process.exit(1);
