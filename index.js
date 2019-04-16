@@ -15,7 +15,7 @@ const generateChangelog = (originName, next) => {
     'for-each-ref',
     '--sort=taggerdate',
     '--format',
-    '%(tag)|%(taggerdate:short)|%(objectname)',
+    '%(refname)|%(taggerdate:short)|%(objectname)',
     'refs/tags'
   ]);
 
@@ -23,9 +23,12 @@ const generateChangelog = (originName, next) => {
   const tagInfos = getTags.stdout
     .toString()
     .split('\n')
-    .filter(line => line && line.match(/^v?[0-9]+\.[0-9]+\.[0-9]+\|/))
+    .filter(
+      line => line && line.match(/^refs\/tags\/v?[0-9]+\.[0-9]+\.[0-9]+\|/)
+    )
     .map(line => {
-      const [tag, date, committish] = line.split('|');
+      const [ref, date, committish] = line.split('|');
+      const tag = ref.replace(/^refs\/tags\/v?/, 'v');
       return { tag, date, committish };
     });
 
@@ -122,7 +125,7 @@ const generateChangelog = (originName, next) => {
     { tag, date, merges, regularCommits }
   ] of releaseInfos.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
-      console.log(`### ${tag} (${date})\n`);
+      console.log(`### ${tag}${date ? ` (${date})\n` : ''}`);
       if (merges.length > 0) {
         if (regularCommits.length > 0) {
           console.log(`#### Pull requests\n`);
