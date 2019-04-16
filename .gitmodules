@@ -1,0 +1,3 @@
+[submodule "testdata/repo"]
+	path = testdata/repo
+	url = git@github.com:papandreou/offline-github-changelog-test1
