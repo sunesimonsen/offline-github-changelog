@@ -46,7 +46,8 @@
     "unexpected-snapshot": "github:papandreou/fixpect#977b71a1b85cf352e2c7111cab1353dd6a5292af"
   },
   "scripts": {
+    "test": "mocha",
     "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
-    "ci": "npm run lint"
+    "ci": "npm run test && npm run lint"
   }
 }
