@@ -30,6 +30,7 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -39,6 +40,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.1.3",
+    "nyc": "^14.0.0",
     "prettier": "^1.16.4",
     "semver": "^6.0.0",
     "sinon": "^7.3.1",
@@ -48,6 +50,12 @@
   "scripts": {
     "test": "mocha",
     "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
-    "ci": "npm run test && npm run lint"
+    "ci": "npm test && npm run lint && npm run coverage",
+    "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm test && echo google-chrome coverage/lcov-report/index.html"
+  },
+    "nyc": {
+    "include": [
+      "index.js"
+    ]
   }
 }
