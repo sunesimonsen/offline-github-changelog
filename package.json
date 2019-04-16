@@ -38,7 +38,9 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "prettier": "^1.16.4",
-    "semver": "^6.0.0"
+    "semver": "^6.0.0",
+    "unexpected": "^11.2.0",
+    "unexpected-snapshot": "github:papandreou/fixpect#977b71a1b85cf352e2c7111cab1353dd6a5292af"
   },
   "scripts": {
     "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
