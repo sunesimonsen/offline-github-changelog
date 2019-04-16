@@ -1,6 +1,7 @@
 const { spawnSync } = require('child_process');
 const markdownEscape = require('markdown-escape');
 const MAX_REGULAR_COMMITS_PER_RELEASE = 5;
+const semver = require('semver');
 
 const generateChangelog = (originName, next) => {
   const getOrigin = spawnSync('git', ['remote', 'get-url', originName]);
@@ -41,6 +42,9 @@ const generateChangelog = (originName, next) => {
   }
 
   const releaseInfos = tagInfos
+    .sort(({ tag: a }, { tag: b }) =>
+      semver.lt(a, b) ? -1 : semver.gt(a, b) ? 1 : 0
+    )
     .map(({ tag, date, committish }) => {
       const commitRange = lastCommittish
         ? `${lastCommittish}..${committish}`
