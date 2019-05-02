@@ -45,7 +45,7 @@
     "semver": "^6.0.0",
     "sinon": "^7.3.1",
     "unexpected": "^11.2.0",
-    "unexpected-snapshot": "github:papandreou/fixpect#977b71a1b85cf352e2c7111cab1353dd6a5292af"
+    "unexpected-snapshot": "github:papandreou/fixpect#6769033d679ecda26cf3c4754e413b9995f255ef"
   },
   "scripts": {
     "test": "mocha",
