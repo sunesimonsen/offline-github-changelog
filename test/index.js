@@ -9,14 +9,17 @@ const expect = require('unexpected')
 
 describe('offline-github-changelog', () => {
   const originalDir = process.cwd();
+  let clock;
 
   beforeEach(() => {
     sinon.stub(console, 'log');
+    clock = sinon.useFakeTimers(new Date('2019-05-02T12:34:56.789Z'), 'Date');
     process.chdir(resolve(__dirname, '..', 'testdata', 'repo'));
   });
 
   afterEach(() => {
     console.log.restore();
+    clock.restore();
     process.chdir(originalDir);
   });
 
