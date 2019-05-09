@@ -45,7 +45,7 @@
     "semver": "^6.0.0",
     "sinon": "^7.3.1",
     "unexpected": "^11.2.0",
-    "unexpected-snapshot": "github:unexpectedjs/unexpected-snapshot#dd1cce07efe7176a9280a9f26b065092d270903f"
+    "unexpected-snapshot": "github:unexpectedjs/unexpected-snapshot#a16c3b0266af74c28bb4a370a9a0e54fafb223b9"
   },
   "scripts": {
     "test": "mocha",
