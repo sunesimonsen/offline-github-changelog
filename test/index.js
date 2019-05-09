@@ -37,8 +37,8 @@ describe('offline-github-changelog', () => {
     generateChangelog();
     expect(
       getOutput(),
-      'to match snapshot',
-      `
+      'to equal snapshot',
+      expect.unindent`
         ### v1.0.1
         #### Pull requests
 
@@ -69,8 +69,8 @@ describe('offline-github-changelog', () => {
       generateChangelog(undefined, '1.2.3');
       expect(
         getOutput(),
-        'to match snapshot',
-        `
+        'to equal snapshot',
+        expect.unindent`
           ### v1.2.3 (2019-05-02)
 
           #### Pull requests
