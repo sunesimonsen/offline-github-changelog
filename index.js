@@ -60,13 +60,18 @@ const generateChangelog = (originName, next) => {
       const merges = getMerges.stdout
         .toString()
         .split('=====\n')
-        .filter(line => line && line.startsWith('Merge pull request'))
+        .filter(line => line && line.startsWith('Merge pull request') || /\(#\d+\)/.test(line))
         .map(line => line.replace(/\n/g, ''))
         .map(line => line.split('|||||'))
         .map(([pullRequest, message, mergeHash, mergeAuthor, parents]) => {
-          const pullRequestNumber = pullRequest.match(
-            /Merge pull request #(\d+) from/
-          )[1];
+          let pullRequestNumber;
+          if (pullRequest.startsWith('Merge pull request')) {
+            pullRequestNumber = pullRequest.match(
+              /Merge pull request #(\d+) from/
+            )[1];
+          } else {
+            pullRequestNumber = pullRequest.match(/\(#(\d+)\)/)[1];
+          }
           const [from, to] = parents.split(' ');
 
           const getAuthors = spawnSync('git', [
