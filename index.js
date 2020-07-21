@@ -3,6 +3,16 @@ const markdownEscape = require('markdown-escape');
 const MAX_REGULAR_COMMITS_PER_RELEASE = 5;
 const semver = require('semver');
 
+const htmlEntity = (c) =>
+  ({
+    '<': '&lt;',
+    '>': '&gt;',
+  }[c]);
+
+const htmlEscape = (s) => s.replace(/[<>]/, htmlEntity);
+
+const escapeText = (s) => htmlEscape(markdownEscape(s));
+
 const generateChangelog = (originName, next) => {
   const getOrigin = spawnSync('git', ['remote', 'get-url', originName]);
 
@@ -137,7 +147,7 @@ const generateChangelog = (originName, next) => {
 
         for (const { authors, message, pullRequestNumber } of merges) {
           console.log(
-            `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${markdownEscape(
+            `- [#${pullRequestNumber}](${repositoryUrl}/pull/${pullRequestNumber}) ${escapeText(
               message
             )} (${authors.join(', ')})`
           );
