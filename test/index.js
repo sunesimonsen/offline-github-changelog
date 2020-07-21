@@ -79,6 +79,7 @@ describe('offline-github-changelog', () => {
 
           #### Commits to master
 
+          - [HTML in commit message: &lt;html dir="rtl"&gt;](/commit/af22733adbc2fc4977862348f68d152b754b4516) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
           - [Unreleased commit on master](/commit/d3987d8212cb43ce39255877f75d45780c00b19a) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
           ### v1.0.1
