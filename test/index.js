@@ -25,9 +25,9 @@ describe('offline-github-changelog', () => {
 
   function getOutput() {
     return console.log.args
-      .map(values => {
+      .map((values) => {
         return values
-          .map(value => (typeof value === 'string' ? value : inspect(value)))
+          .map((value) => (typeof value === 'string' ? value : inspect(value)))
           .join(' ');
       })
       .join('\n');
