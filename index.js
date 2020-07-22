@@ -17,7 +17,7 @@ const generateChangelog = (originName, next) => {
     '--sort=taggerdate',
     '--format',
     '%(refname)|%(taggerdate:short)|%(objectname)',
-    'refs/tags'
+    'refs/tags',
   ]);
 
   let lastCommittish = null;
@@ -25,9 +25,9 @@ const generateChangelog = (originName, next) => {
     .toString()
     .split('\n')
     .filter(
-      line => line && line.match(/^refs\/tags\/v?[0-9]+\.[0-9]+\.[0-9]+\|/)
+      (line) => line && line.match(/^refs\/tags\/v?[0-9]+\.[0-9]+\.[0-9]+\|/)
     )
-    .map(line => {
+    .map((line) => {
       const [ref, date, committish] = line.split('|');
       const tag = ref.replace(/^refs\/tags\/v?/, 'v');
       return { tag, date, committish };
@@ -37,7 +37,7 @@ const generateChangelog = (originName, next) => {
     tagInfos.push({
       tag: next.replace(/^v?/, 'v'), // Ensure leading v
       date: new Date().toJSON().replace(/T.*$/, ''), // Today in YYYY-MM-DD
-      committish: 'master'
+      committish: 'master',
     });
   }
 
@@ -54,19 +54,19 @@ const generateChangelog = (originName, next) => {
         'log',
         '--merges',
         '--pretty=%s|||||%b|||||%H|||||[%an](mailto:%ae)|||||%P=====',
-        commitRange
+        commitRange,
       ]);
 
       const merges = getMerges.stdout
         .toString()
         .split('=====\n')
         .filter(
-          line =>
+          (line) =>
             (line && line.startsWith('Merge pull request')) ||
             / \(#\d+\)/.test(line)
         )
-        .map(line => line.replace(/\n/g, ''))
-        .map(line => line.split('|||||'))
+        .map((line) => line.replace(/\n/g, ''))
+        .map((line) => line.split('|||||'))
         .map(([pullRequest, message, mergeHash, mergeAuthor, parents]) => {
           let pullRequestNumber;
           if (pullRequest.startsWith('Merge pull request')) {
@@ -83,21 +83,21 @@ const generateChangelog = (originName, next) => {
           const getAuthors = spawnSync('git', [
             'log',
             '--pretty=[%an](mailto:%ae)',
-            `${from}..${to}`
+            `${from}..${to}`,
           ]);
 
           const authors = new Set(
             getAuthors.stdout
               .toString()
               .split('\n')
-              .filter(line => line)
+              .filter((line) => line)
           );
 
           return {
             authors: Array.from(authors).sort(),
             mergeAuthor,
             message,
-            pullRequestNumber
+            pullRequestNumber,
           };
         });
 
@@ -106,21 +106,21 @@ const generateChangelog = (originName, next) => {
         '--no-merges',
         '--first-parent',
         '--pretty=%s|||||%b|||||%H|||||[%an](mailto:%ae)|||||%P=====',
-        commitRange
+        commitRange,
       ]);
 
       const regularCommits = getRegularCommits.stdout
         .toString()
         .split('=====\n')
         // Crudely skip version commits (with "x.y.z" message):
-        .filter(line => line && !/^[\d+.-]+\|\|\|\|\|/.test(line))
-        .map(line => line.replace(/\n/g, ''))
-        .map(line => line.split('|||||'))
+        .filter((line) => line && !/^[\d+.-]+\|\|\|\|\|/.test(line))
+        .map((line) => line.replace(/\n/g, ''))
+        .map((line) => line.split('|||||'))
         .map(([message, body, commitHash, author]) => {
           return {
             author,
             message,
-            commitHash
+            commitHash,
           };
         });
 
@@ -130,14 +130,14 @@ const generateChangelog = (originName, next) => {
         tag,
         date,
         merges,
-        regularCommits
+        regularCommits,
       };
     })
     .reverse();
 
   for (const [
     i,
-    { tag, date, merges, regularCommits }
+    { tag, date, merges, regularCommits },
   ] of releaseInfos.entries()) {
     if (merges.length > 0 || regularCommits.length > 0) {
       console.log(`### ${tag}${date ? ` (${date})\n` : ''}`);
@@ -182,8 +182,9 @@ const generateChangelog = (originName, next) => {
             compareFrom
           )}...${encodeURIComponent(tag)}`;
           console.log(
-            `- [+${regularCommits.length -
-              MAX_REGULAR_COMMITS_PER_RELEASE} more](${targetUrl})`
+            `- [+${
+              regularCommits.length - MAX_REGULAR_COMMITS_PER_RELEASE
+            } more](${targetUrl})`
           );
         }
         console.log();
