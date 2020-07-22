@@ -75,6 +75,7 @@ describe('offline-github-changelog', () => {
 
           #### Pull requests
 
+          - [#123](/pull/123) The title of some PR ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
           - [#3](/pull/3) An unreleased feature ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
           #### Commits to master

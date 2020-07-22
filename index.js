@@ -63,7 +63,7 @@ const generateChangelog = (originName, next) => {
         .filter(
           line =>
             (line && line.startsWith('Merge pull request')) ||
-            /\(#\d+\)/.test(line)
+            / \(#\d+\)/.test(line)
         )
         .map(line => line.replace(/\n/g, ''))
         .map(line => line.split('|||||'))
@@ -74,7 +74,9 @@ const generateChangelog = (originName, next) => {
               /Merge pull request #(\d+) from/
             )[1];
           } else {
-            pullRequestNumber = pullRequest.match(/\(#(\d+)\)/)[1];
+            const matchPullRequest = pullRequest.match(/^(.*) \(#(\d+)\)/);
+            message = matchPullRequest[1] || message;
+            pullRequestNumber = matchPullRequest[2];
           }
           const [from, to] = parents.split(' ');
 
