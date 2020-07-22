@@ -19,12 +19,12 @@ const cli = require('meow')(
       remote: {
         type: 'string',
         alias: 'r',
-        default: 'origin'
+        default: 'origin',
       },
       next: {
-        type: 'string'
-      }
-    }
+        type: 'string',
+      },
+    },
   }
 );
 
