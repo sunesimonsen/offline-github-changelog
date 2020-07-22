@@ -60,7 +60,11 @@ const generateChangelog = (originName, next) => {
       const merges = getMerges.stdout
         .toString()
         .split('=====\n')
-        .filter(line => line && line.startsWith('Merge pull request') || /\(#\d+\)/.test(line))
+        .filter(
+          line =>
+            (line && line.startsWith('Merge pull request')) ||
+            /\(#\d+\)/.test(line)
+        )
         .map(line => line.replace(/\n/g, ''))
         .map(line => line.split('|||||'))
         .map(([pullRequest, message, mergeHash, mergeAuthor, parents]) => {
