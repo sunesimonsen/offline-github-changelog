@@ -50,7 +50,7 @@
   "scripts": {
     "test": "mocha",
     "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
-    "ci": "npm test && npm run lint && npm run coverage",
+    "test:ci": "npm test && npm run coverage",
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm test && echo google-chrome coverage/lcov-report/index.html"
   },
   "nyc": {
