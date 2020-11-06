@@ -28,11 +28,14 @@ const cli = require('meow')(
   }
 );
 
-const { generateChangelog } = require('../index');
+const { generateChangelog } = require('../lib/index');
 const { remote, next } = cli.flags;
 
 try {
-  generateChangelog(remote, next);
+  generateChangelog(remote, next).catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
 } catch (e) {
   console.error(e);
   process.exit(1);
