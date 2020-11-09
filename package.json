@@ -55,6 +55,7 @@
     "test": "mocha",
     "lint": "eslint . && prettier --check '**/*.js' 'bin/*'",
     "test:ci": "npm test && npm run coverage",
+    "version": "./bin/offline-github-changelog --next=${npm_package_version} > CHANGELOG.md && git add CHANGELOG.md",
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm test && echo google-chrome coverage/lcov-report/index.html"
   },
   "nyc": {
