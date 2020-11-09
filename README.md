@@ -1,5 +1,7 @@
 ## offline-github-changelog
 
+[![Actions Status: test](https://github.com/sunesimonsen/offline-github-changelog/workflows/test/badge.svg)](https://github.com/sunesimonsen/offline-github-changelog/actions?query=workflow%3A"test")
+
 This is a changelog generator for Github projects. It generates markdown based on your version tags and pull request merges.
 
 Example [unexpected.js.org changelog](https://github.com/unexpectedjs/unexpected/blob/master/CHANGELOG.md).
@@ -18,6 +20,10 @@ offline-github-changelog > CHANGELOG.md
 # with a different remote
 offline-github-changelog --remote=myremote > CHANGELOG.md
 ```
+
+### Releases
+
+[Changelog](./CHANGELOG.md)
 
 ### License (MIT)
 
