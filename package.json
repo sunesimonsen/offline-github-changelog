@@ -47,7 +47,7 @@
     "semver": "^6.0.0",
     "sinon": "^7.3.1",
     "unexpected": "^11.2.0",
-    "unexpected-snapshot": "^0.3.0"
+    "unexpected-snapshot": "^1.1.0"
   },
   "scripts": {
     "test": "mocha",
