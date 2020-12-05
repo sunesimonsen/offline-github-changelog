@@ -1,3 +1,27 @@
+### v2.2.0 (2020-12-05)
+
+#### Pull requests
+
+- [#31](https://github.com/sunesimonsen/offline-github-changelog/pull/31) Read the current branch from git to support main branches ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#30](https://github.com/sunesimonsen/offline-github-changelog/pull/30) Bump eslint-config-standard from 12.0.0 to 16.0.2 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#29](https://github.com/sunesimonsen/offline-github-changelog/pull/29) Bump eslint-plugin-mocha from 5.3.0 to 8.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#18](https://github.com/sunesimonsen/offline-github-changelog/pull/18) Bump eslint-config-prettier from 4.3.0 to 6.15.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#28](https://github.com/sunesimonsen/offline-github-changelog/pull/28) Bump mocha from 6.2.3 to 8.2.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#27](https://github.com/sunesimonsen/offline-github-changelog/pull/27) Bump eslint from 5.16.0 to 7.14.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#25](https://github.com/sunesimonsen/offline-github-changelog/pull/25) Bump sinon from 7.5.0 to 9.2.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#26](https://github.com/sunesimonsen/offline-github-changelog/pull/26) Bump eslint-plugin-node from 8.0.1 to 11.1.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#24](https://github.com/sunesimonsen/offline-github-changelog/pull/24) Bump semver from 6.3.0 to 7.3.2 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#23](https://github.com/sunesimonsen/offline-github-changelog/pull/23) Bump eslint-plugin-standard from 4.1.0 to 5.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#22](https://github.com/sunesimonsen/offline-github-changelog/pull/22) Bump unexpected from 11.15.1 to 12.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#21](https://github.com/sunesimonsen/offline-github-changelog/pull/21) Bump prettier from 2.0.5 to 2.2.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#20](https://github.com/sunesimonsen/offline-github-changelog/pull/20) Bump unexpected-snapshot from 0.3.2 to 1.1.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#14](https://github.com/sunesimonsen/offline-github-changelog/pull/14) GitHub actions ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+#### Commits to master
+
+- [Added dependabot](https://github.com/sunesimonsen/offline-github-changelog/commit/27004ebc65444b3a554d948fa5a2749aab16f523) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [Link to the changelog from the readme](https://github.com/sunesimonsen/offline-github-changelog/commit/135264db94c4330d2dd404c99b306725c4a79569) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v2.1.0 (2020-11-09)
 
 - [Generate a changelog on versioning](https://github.com/sunesimonsen/offline-github-changelog/commit/837512824b5b07403116ea448eeef8018fdcd399) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
