@@ -34,7 +34,7 @@ describe('offline-github-changelog', () => {
   }
 
   it('should generate a changelog', async () => {
-    await generateChangelog('origin');
+    await generateChangelog({ originName: 'origin', currentBranch: 'master' });
     expect(
       getOutput(),
       'to equal snapshot',
@@ -66,7 +66,11 @@ describe('offline-github-changelog', () => {
 
   describe('with the next switch', () => {
     it('should attribute the latest commits on master to the given version', async () => {
-      await generateChangelog('origin', '1.2.3');
+      await generateChangelog({
+        originName: 'origin',
+        nextVersion: '1.2.3',
+        currentBranch: 'master',
+      });
       expect(
         getOutput(),
         'to equal snapshot',

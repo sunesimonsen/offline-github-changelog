@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { execSync } = require('child_process');
 
 const cli = require('meow')(
   `
@@ -28,11 +29,19 @@ const cli = require('meow')(
   }
 );
 
+const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
+  .toString()
+  .trim();
+
 const { generateChangelog } = require('../lib/index');
 const { remote, next } = cli.flags;
 
 try {
-  generateChangelog(remote, next).catch((e) => {
+  generateChangelog({
+    originName: remote,
+    nextVersion: next,
+    currentBranch,
+  }).catch((e) => {
     console.error(e);
     process.exit(1);
   });
