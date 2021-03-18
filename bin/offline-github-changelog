@@ -33,11 +33,11 @@ const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim();
 
-const { generateChangelog } = require('../lib/index');
+const { printMarkdownChangelog } = require('../lib/index');
 const { remote, next } = cli.flags;
 
 try {
-  generateChangelog({
+  printMarkdownChangelog({
     originName: remote,
     nextVersion: next,
     currentBranch,
