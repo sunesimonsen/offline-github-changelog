@@ -1,3 +1,16 @@
+### v2.3.0 (2021-03-19)
+
+#### Pull requests
+
+- [#43](https://github.com/sunesimonsen/offline-github-changelog/pull/43) Add function to get a markdown changelog as a string ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#34](https://github.com/sunesimonsen/offline-github-changelog/pull/34) Bump meow from 8.1.2 to 9.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#37](https://github.com/sunesimonsen/offline-github-changelog/pull/37) Bump @transformation\/ejs from 3.8.0 to 4.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#32](https://github.com/sunesimonsen/offline-github-changelog/pull/32) Bump eslint-config-prettier from 6.15.0 to 7.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Bump meow from 5.0.0 to 8.1.0](https://github.com/sunesimonsen/offline-github-changelog/commit/b1ba32a3d586eec0dde3c94dc338b4a7de528d29) ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
 ### v2.2.0 (2020-12-05)
 
 #### Pull requests
