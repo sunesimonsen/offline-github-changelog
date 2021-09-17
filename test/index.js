@@ -13,7 +13,10 @@ describe('offline-github-changelog', () => {
 
   beforeEach(() => {
     sinon.stub(console, 'log');
-    clock = sinon.useFakeTimers(new Date('2019-05-02T12:34:56.789Z'), 'Date');
+    clock = sinon.useFakeTimers({
+      now: new Date('2019-05-02T12:34:56.789Z'),
+      toFake: ['Date'],
+    });
     process.chdir(resolve(__dirname, '..', 'testdata', 'repo'));
   });
 
@@ -38,6 +41,7 @@ describe('offline-github-changelog', () => {
       originName: 'origin',
       currentBranch: 'master',
     });
+
     expect(
       getOutput(),
       'to equal snapshot',
