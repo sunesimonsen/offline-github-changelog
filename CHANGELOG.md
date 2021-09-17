@@ -1,3 +1,8 @@
+### v2.4.0 (2021-09-17)
+
+- [#53](https://github.com/sunesimonsen/offline-github-changelog/pull/53) Upgrade transformations ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#48](https://github.com/sunesimonsen/offline-github-changelog/pull/48) Bump sinon from 9.2.4 to 11.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
 ### v2.3.0 (2021-03-19)
 
 #### Pull requests
