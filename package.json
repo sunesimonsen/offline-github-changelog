@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@transformation/core": "^4.1.1",
-    "@transformation/ejs": "^4.1.1",
+    "@transformation/ejs": "^5.1.0",
     "@transformation/process": "^4.1.1",
     "@transformation/stream": "^4.1.1",
     "markdown-escape": "^1.0.2",
