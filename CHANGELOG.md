@@ -1,3 +1,20 @@
+### v2.5.0 (2022-05-31)
+
+- [#78](https://github.com/sunesimonsen/offline-github-changelog/pull/78) Upgrade transformation ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#74](https://github.com/sunesimonsen/offline-github-changelog/pull/74) Bump sinon from 13.0.2 to 14.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#70](https://github.com/sunesimonsen/offline-github-changelog/pull/70) Bump prettier from 2.5.1 to 2.6.2 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#72](https://github.com/sunesimonsen/offline-github-changelog/pull/72) Bump unexpected from 12.0.4 to 13.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#71](https://github.com/sunesimonsen/offline-github-changelog/pull/71) Bump unexpected-snapshot from 1.2.0 to 2.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#67](https://github.com/sunesimonsen/offline-github-changelog/pull/67) Bump sinon from 12.0.1 to 13.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#47](https://github.com/sunesimonsen/offline-github-changelog/pull/47) Bump eslint-config-prettier from 7.2.0 to 8.3.0 ([Sune Simonsen](mailto:sune@we-knowhow.dk), [dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#63](https://github.com/sunesimonsen/offline-github-changelog/pull/63) Bump sinon from 11.1.2 to 12.0.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#66](https://github.com/sunesimonsen/offline-github-changelog/pull/66) Bump eslint-plugin-promise from 5.2.0 to 6.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#65](https://github.com/sunesimonsen/offline-github-changelog/pull/65) Bump eslint-plugin-mocha from 9.0.0 to 10.0.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#54](https://github.com/sunesimonsen/offline-github-changelog/pull/54) Bump eslint-plugin-mocha from 8.2.0 to 9.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#58](https://github.com/sunesimonsen/offline-github-changelog/pull/58) Bump mocha from 8.4.0 to 9.1.3 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#61](https://github.com/sunesimonsen/offline-github-changelog/pull/61) Bump eslint-plugin-promise from 4.3.1 to 5.2.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#62](https://github.com/sunesimonsen/offline-github-changelog/pull/62) Bump prettier from 2.2.1 to 2.5.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
 ### v2.4.0 (2021-09-17)
 
 - [#53](https://github.com/sunesimonsen/offline-github-changelog/pull/53) Upgrade transformations ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -46,14 +63,14 @@
 
 ### v2.0.0
 
-- [#13](https://github.com/sunesimonsen/offline-github-changelog/pull/13) Use the transformation library \(Major\) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-- [#12](https://github.com/sunesimonsen/offline-github-changelog/pull/12) Update prettier to ~2.0.5 ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#13](https://github.com/sunesimonsen/offline-github-changelog/pull/13) Use the transformation library \(Major\) ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#12](https://github.com/sunesimonsen/offline-github-changelog/pull/12) Update prettier to ~2.0.5 ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
 ### v1.7.0 (2020-07-22)
 
 #### Pull requests
 
-- [#9](https://github.com/sunesimonsen/offline-github-changelog/pull/9) Add tests ([Andreas Lind](mailto:andreas.lind@peakon.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#9](https://github.com/sunesimonsen/offline-github-changelog/pull/9) Add tests ([Andreas Lind](mailto:andreas.lind@peakon.com), [Andreas Lind](mailto:andreas.lind@peakon.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Sune Simonsen](mailto:sune@we-knowhow.dk))
 
 #### Commits to master
 
@@ -63,29 +80,29 @@
 
 ### v1.6.1 (2019-04-17)
 
-- [#8](https://github.com/sunesimonsen/offline-github-changelog/pull/8) Fix support for old tags\/refs where %\(ref\) comes out empty for some reason ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#8](https://github.com/sunesimonsen/offline-github-changelog/pull/8) Fix support for old tags\/refs where %\(ref\) comes out empty for some reason ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
 ### v1.6.0 (2019-03-31)
 
 - [#7](https://github.com/sunesimonsen/offline-github-changelog/pull/7) Implement --next switch ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-- [#6](https://github.com/sunesimonsen/offline-github-changelog/pull/6) Add prettier, eslint, and Travis config ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#6](https://github.com/sunesimonsen/offline-github-changelog/pull/6) Add prettier, eslint, and Travis config ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
 ### v1.5.0 (2019-03-12)
 
-- [#5](https://github.com/sunesimonsen/offline-github-changelog/pull/5) Also include regular commits \(not via PRs\) in the changelog to avoid gaps ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#5](https://github.com/sunesimonsen/offline-github-changelog/pull/5) Also include regular commits \(not via PRs\) in the changelog to avoid gaps ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
 
 ### v1.4.0 (2019-01-07)
 
-- [#3](https://github.com/sunesimonsen/offline-github-changelog/pull/3) Add a remote cli argument ([Andrea D](mailto:nkjoep@gmail.com))
+- [#3](https://github.com/sunesimonsen/offline-github-changelog/pull/3) Add a remote cli argument ([Andrea D](mailto:nkjoep@gmail.com), [Andrea D](mailto:nkjoep@gmail.com))
 
 ### v1.3.0 (2019-01-06)
 
-- [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 
 ### v1.1.3 (2019-01-05)
 
-- [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-- [#2](https://github.com/sunesimonsen/offline-github-changelog/pull/2) Credit authors ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#2](https://github.com/sunesimonsen/offline-github-changelog/pull/2) Credit authors ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
 
 ### v1.1.2 (2017-10-05)
 
