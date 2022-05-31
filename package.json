@@ -26,10 +26,10 @@
     "offline-github-changelog": "./bin/offline-github-changelog"
   },
   "dependencies": {
-    "@transformation/core": "^4.1.1",
-    "@transformation/ejs": "^4.1.1",
-    "@transformation/process": "^4.1.1",
-    "@transformation/stream": "^4.1.1",
+    "@transformation/core": "^5.1.1",
+    "@transformation/ejs": "^5.1.1",
+    "@transformation/process": "^5.1.1",
+    "@transformation/stream": "^5.1.1",
     "markdown-escape": "^1.0.2",
     "meow": "^9.0.0"
   },
