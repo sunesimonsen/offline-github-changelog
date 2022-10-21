@@ -31,7 +31,7 @@
     "@transformation/process": "^5.1.1",
     "@transformation/stream": "^5.1.1",
     "markdown-escape": "^1.0.2",
-    "meow": "^11.0.0"
+    "meow": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "^8.25.0",
