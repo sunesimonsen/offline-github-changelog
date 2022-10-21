@@ -1,3 +1,18 @@
+### v3.0.0 (2022-10-21)
+
+#### Pull requests
+
+- [#79](https://github.com/sunesimonsen/offline-github-changelog/pull/79) Bump @transformation\/core from 5.1.1 to 6.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#85](https://github.com/sunesimonsen/offline-github-changelog/pull/85) Bump meow from 9.0.0 to 11.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#86](https://github.com/sunesimonsen/offline-github-changelog/pull/86) Bump mocha from 9.2.2 to 10.1.0 ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com), [dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#80](https://github.com/sunesimonsen/offline-github-changelog/pull/80) Bump @transformation\/ejs from 5.1.1 to 6.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Update @transformation\/process and @transformation\/stream](https://github.com/sunesimonsen/offline-github-changelog/commit/25fa63fac7a4b7cf3c93a3d047376d8c8bd6e8aa) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Downgrade meow to ^9.0.0 \(10+ is esm only\)](https://github.com/sunesimonsen/offline-github-changelog/commit/75c4422032c2b43668c638446a7be92216c675f0) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Fix CHANGELOG generation in preversion script now that an npm env var changed](https://github.com/sunesimonsen/offline-github-changelog/commit/e058f4f1bb049f4e129d08087237c7d966b5080c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
 ### v2.5.0 (2022-05-31)
 
 - [#78](https://github.com/sunesimonsen/offline-github-changelog/pull/78) Upgrade transformation ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -98,6 +113,7 @@
 ### v1.3.0 (2019-01-06)
 
 - [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [#2](https://github.com/sunesimonsen/offline-github-changelog/pull/2) Credit authors ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
 
 ### v1.1.3 (2019-01-05)
 
