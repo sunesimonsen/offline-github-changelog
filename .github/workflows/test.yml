@@ -24,11 +24,11 @@ jobs:
         run: npm test
 
   versions:
-    name: "Test on Node.js ${{ matrix.node-version }}"
+    name: 'Test on Node.js ${{ matrix.node-version }}'
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10, 12, 14]
+        node-version: [14, 16, 18]
     steps:
       - name: checkout
         uses: actions/checkout@v2
