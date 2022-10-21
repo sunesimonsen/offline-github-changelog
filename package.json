@@ -26,7 +26,7 @@
     "offline-github-changelog": "./bin/offline-github-changelog"
   },
   "dependencies": {
-    "@transformation/core": "^5.1.1",
+    "@transformation/core": "^6.0.0",
     "@transformation/ejs": "^6.0.0",
     "@transformation/process": "^5.1.1",
     "@transformation/stream": "^5.1.1",
