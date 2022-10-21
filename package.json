@@ -34,19 +34,18 @@
     "meow": "^9.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-mocha": "^10.0.1",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-mocha": "^10.1.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.1.0",
     "prettier": "~2.6.2",
-    "semver": "^7.3.2",
-    "sinon": "^14.0.0",
-    "unexpected": "^13.0.0",
+    "semver": "^7.3.8",
+    "sinon": "^14.0.1",
+    "unexpected": "^13.0.1",
     "unexpected-snapshot": "^2.1.0"
   },
   "scripts": {
