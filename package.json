@@ -30,7 +30,7 @@
     "@transformation/ejs": "^6.0.0",
     "@transformation/process": "^6.0.0",
     "@transformation/stream": "^6.0.0",
-    "markdown-escape": "^1.0.2",
+    "markdown-escape": "^2.0.0",
     "meow": "^9.0.0"
   },
   "devDependencies": {
