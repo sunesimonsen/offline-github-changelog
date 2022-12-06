@@ -1,3 +1,11 @@
+### v3.0.1 (2022-12-06)
+
+- [#91](https://github.com/sunesimonsen/offline-github-changelog/pull/91) Upgrade transformation ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#90](https://github.com/sunesimonsen/offline-github-changelog/pull/90) Bump sinon from 14.0.2 to 15.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#89](https://github.com/sunesimonsen/offline-github-changelog/pull/89) Bump prettier from 2.7.1 to 2.8.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#88](https://github.com/sunesimonsen/offline-github-changelog/pull/88) Bump markdown-escape from 1.1.0 to 2.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#87](https://github.com/sunesimonsen/offline-github-changelog/pull/87) Bump prettier from 2.6.2 to 2.7.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
 ### v3.0.0 (2022-10-21)
 
 #### Pull requests
@@ -113,7 +121,6 @@
 ### v1.3.0 (2019-01-06)
 
 - [#4](https://github.com/sunesimonsen/offline-github-changelog/pull/4) Escape markdown special characters in PR titles ([Andreas Lind](mailto:andreaslindpetersen@gmail.com), [Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-- [#2](https://github.com/sunesimonsen/offline-github-changelog/pull/2) Credit authors ([Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk), [Sune Simonsen](mailto:sune@we-knowhow.dk))
 
 ### v1.1.3 (2019-01-05)
 
