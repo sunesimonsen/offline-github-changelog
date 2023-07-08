@@ -54,7 +54,7 @@ describe('offline-github-changelog', () => {
         #### Commits to master
 
         - [Release 1.0.0](https://github.com/papandreou/offline-github-changelog-test1/commit/e1fe60089ad08d31929707a1713d711e9a49b58c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-        - [Commit to master before first release](https://github.com/papandreou/offline-github-changelog-test1/commit/36851b522fc40ada3bb85d52d77183db23285143) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`
+        - [Commit to master before first release](https://github.com/papandreou/offline-github-changelog-test1/commit/36851b522fc40ada3bb85d52d77183db23285143) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
     );
   });
 
@@ -103,7 +103,7 @@ describe('offline-github-changelog', () => {
           #### Commits to master
 
           - [Release 1.0.0](https://github.com/papandreou/offline-github-changelog-test1/commit/e1fe60089ad08d31929707a1713d711e9a49b58c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-          - [Commit to master before first release](https://github.com/papandreou/offline-github-changelog-test1/commit/36851b522fc40ada3bb85d52d77183db23285143) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`
+          - [Commit to master before first release](https://github.com/papandreou/offline-github-changelog-test1/commit/36851b522fc40ada3bb85d52d77183db23285143) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
       );
     });
   });
