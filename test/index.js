@@ -107,4 +107,205 @@ describe('offline-github-changelog', () => {
       );
     });
   });
+
+  describe('with the number of commits per release switch', () => {
+    it('should truncate to the number of commits specified', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        numberCommits: 1,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          #### Commits to master
+
+          - [Release 1.0.1](https://github.com/papandreou/offline-github-changelog-test1/commit/825179ea6b03098ebba60e433be57dfdcef2a3bd) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [+2 more](https://github.com/papandreou/offline-github-changelog-test1/compare/v1.0.0...v1.0.1)
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          #### Commits to master
+
+          - [Release 1.0.0](https://github.com/papandreou/offline-github-changelog-test1/commit/e1fe60089ad08d31929707a1713d711e9a49b58c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [+1 more](https://github.com/papandreou/offline-github-changelog-test1/compare/e1fe60089ad08d31929707a1713d711e9a49b58c...v1.0.0)`,
+      );
+    });
+
+    it('should fallback to 0 if a negative number of commits is provided', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        numberCommits: -1,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
+      );
+    });
+
+    it('should handle 0 as the number of regular commits to show', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        numberCommits: 0,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
+      );
+    });
+
+    it('should work with `nextVersion`', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        nextVersion: '1.2.3',
+        numberCommits: 1,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.2.3 (2019-05-02)
+
+          #### Pull requests
+
+          - [#123](https://github.com/papandreou/offline-github-changelog-test1/pull/123) The title of some PR ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [#3](https://github.com/papandreou/offline-github-changelog-test1/pull/3) An unreleased feature ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          #### Commits to master
+
+          - [HTML in commit message: &lt;html dir="rtl"&gt;](https://github.com/papandreou/offline-github-changelog-test1/commit/af22733adbc2fc4977862348f68d152b754b4516) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [+1 more](https://github.com/papandreou/offline-github-changelog-test1/compare/v1.0.1...v1.2.3)
+
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          #### Commits to master
+
+          - [Release 1.0.1](https://github.com/papandreou/offline-github-changelog-test1/commit/825179ea6b03098ebba60e433be57dfdcef2a3bd) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [+2 more](https://github.com/papandreou/offline-github-changelog-test1/compare/v1.0.0...v1.0.1)
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          #### Commits to master
+
+          - [Release 1.0.0](https://github.com/papandreou/offline-github-changelog-test1/commit/e1fe60089ad08d31929707a1713d711e9a49b58c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [+1 more](https://github.com/papandreou/offline-github-changelog-test1/compare/e1fe60089ad08d31929707a1713d711e9a49b58c...v1.0.0)`,
+      );
+    });
+
+    it('should work with `nextVersion` and 0 commits', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        nextVersion: '1.2.3',
+        numberCommits: 0,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.2.3 (2019-05-02)
+
+          #### Pull requests
+
+          - [#123](https://github.com/papandreou/offline-github-changelog-test1/pull/123) The title of some PR ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [#3](https://github.com/papandreou/offline-github-changelog-test1/pull/3) An unreleased feature ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
+      );
+    });
+
+    it('should work with `nextVersion` and negative number of commits', async () => {
+      const output = await markdownChangelogString({
+        originName: 'origin',
+        currentBranch: 'master',
+        nextVersion: '1.2.3',
+        numberCommits: -2,
+      });
+
+      expect(
+        output,
+        'to equal snapshot',
+        expect.unindent`
+          ### v1.2.3 (2019-05-02)
+
+          #### Pull requests
+
+          - [#123](https://github.com/papandreou/offline-github-changelog-test1/pull/123) The title of some PR ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+          - [#3](https://github.com/papandreou/offline-github-changelog-test1/pull/3) An unreleased feature ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.1
+
+          #### Pull requests
+
+          - [#2](https://github.com/papandreou/offline-github-changelog-test1/pull/2) Feature for one oh one ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
+          ### v1.0.0
+
+          #### Pull requests
+
+          - [#1](https://github.com/papandreou/offline-github-changelog-test1/pull/1) Feature commit before first release ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))`,
+      );
+    });
+  });
 });
