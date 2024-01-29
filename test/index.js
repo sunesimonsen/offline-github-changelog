@@ -113,7 +113,7 @@ describe('offline-github-changelog', () => {
       const output = await markdownChangelogString({
         originName: 'origin',
         currentBranch: 'master',
-        numberCommits: 1,
+        maxCommits: 1,
       });
 
       expect(
@@ -148,7 +148,7 @@ describe('offline-github-changelog', () => {
       const output = await markdownChangelogString({
         originName: 'origin',
         currentBranch: 'master',
-        numberCommits: -1,
+        maxCommits: -1,
       });
 
       expect(
@@ -173,7 +173,7 @@ describe('offline-github-changelog', () => {
       const output = await markdownChangelogString({
         originName: 'origin',
         currentBranch: 'master',
-        numberCommits: 0,
+        maxCommits: 0,
       });
 
       expect(
@@ -199,7 +199,7 @@ describe('offline-github-changelog', () => {
         originName: 'origin',
         currentBranch: 'master',
         nextVersion: '1.2.3',
-        numberCommits: 1,
+        maxCommits: 1,
       });
 
       expect(
@@ -247,7 +247,7 @@ describe('offline-github-changelog', () => {
         originName: 'origin',
         currentBranch: 'master',
         nextVersion: '1.2.3',
-        numberCommits: 0,
+        maxCommits: 0,
       });
 
       expect(
@@ -280,7 +280,7 @@ describe('offline-github-changelog', () => {
         originName: 'origin',
         currentBranch: 'master',
         nextVersion: '1.2.3',
-        numberCommits: -2,
+        maxCommits: -2,
       });
 
       expect(
