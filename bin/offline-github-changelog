@@ -48,7 +48,7 @@ try {
   printMarkdownChangelog({
     originName: remote,
     nextVersion: next,
-    numberCommits: maxCommits,
+    maxCommits,
     currentBranch,
   }).catch((e) => {
     console.error(e);
