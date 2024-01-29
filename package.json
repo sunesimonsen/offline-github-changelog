@@ -1,6 +1,6 @@
 {
   "name": "offline-github-changelog",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "A changelog generator for Github projects that only uses the Git history",
   "main": "./lib/index.js",
   "repository": {

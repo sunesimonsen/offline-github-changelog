@@ -1,3 +1,8 @@
+### v3.1.0 (2024-01-29)
+
+- [#104](https://github.com/sunesimonsen/offline-github-changelog/pull/104) Clean up the handling of max commits ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#103](https://github.com/sunesimonsen/offline-github-changelog/pull/103) Add \`--max-commits\` flag ([m4rc3l05](mailto:15786310+M4RC3L05@users.noreply.github.com))
+
 ### v3.0.2 (2024-01-24)
 
 - [#102](https://github.com/sunesimonsen/offline-github-changelog/pull/102) Fix duplicated authors ([Sune Simonsen](mailto:sune@we-knowhow.dk))
