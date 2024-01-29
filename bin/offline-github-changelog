@@ -7,11 +7,14 @@ const cli = require('meow')(
     $ offline-github-changelog
 
   Options
-    --remote, -r  Specify the remote
-    --next        Specify the version about to be released
+    --remote, -r      Specify the remote
+    --next            Specify the version about to be released
+    --max-commits, -c Specify the number of commits to show per release (default: 5)
 
   Examples
     $ offline-github-changelog > CHANGELOG.md
+    $ offline-github-changelog --max-commits 3 > CHANGELOG.md
+    $ offline-github-changelog --max-commits 0 > CHANGELOG.md // Pass 0 to not show the commits section
     $ offline-github-changelog --remote=myremote > CHANGELOG.md
     $ offline-github-changelog --next=1.2.4 > CHANGELOG.md
 `,
@@ -25,6 +28,11 @@ const cli = require('meow')(
       next: {
         type: 'string',
       },
+      maxCommits: {
+        type: 'number',
+        alias: 'c',
+        default: 5,
+      },
     },
   },
 );
@@ -34,12 +42,13 @@ const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
   .trim();
 
 const { printMarkdownChangelog } = require('../lib/index');
-const { remote, next } = cli.flags;
+const { remote, next, maxCommits } = cli.flags;
 
 try {
   printMarkdownChangelog({
     originName: remote,
     nextVersion: next,
+    numberCommits: maxCommits,
     currentBranch,
   }).catch((e) => {
     console.error(e);
