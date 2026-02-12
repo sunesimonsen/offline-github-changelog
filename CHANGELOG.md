@@ -1,3 +1,20 @@
+### v4.0.0 (2026-02-12)
+
+#### Pull requests
+
+- [#137](https://github.com/sunesimonsen/offline-github-changelog/pull/137) Set required version to v20 \(Major\) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#129](https://github.com/sunesimonsen/offline-github-changelog/pull/129) Bump eslint-config-prettier from 9.1.0 to 10.0.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#131](https://github.com/sunesimonsen/offline-github-changelog/pull/131) Bump mocha from 10.8.2 to 11.1.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#136](https://github.com/sunesimonsen/offline-github-changelog/pull/136) Bump prettier from 3.3.3 to 3.5.1 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#124](https://github.com/sunesimonsen/offline-github-changelog/pull/124) Bump sinon from 18.0.1 to 19.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#121](https://github.com/sunesimonsen/offline-github-changelog/pull/121) Bump prettier from 3.2.5 to 3.3.3 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+- [#115](https://github.com/sunesimonsen/offline-github-changelog/pull/115) Bump sinon from 17.0.2 to 18.0.0 ([dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Downgrade meow](https://github.com/sunesimonsen/offline-github-changelog/commit/b331bea88ac365d6fbd06c57acfa13db1954f2f3) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [Set node version](https://github.com/sunesimonsen/offline-github-changelog/commit/6d8473b51ec49d6ddfc94dec81996865ebaef5e4) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v3.1.0 (2024-01-29)
 
 - [#104](https://github.com/sunesimonsen/offline-github-changelog/pull/104) Clean up the handling of max commits ([Sune Simonsen](mailto:sune@we-knowhow.dk))
