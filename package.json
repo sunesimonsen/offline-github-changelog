@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/sunesimonsen/offline-github-changelog#readme",
   "engines": {
-    "node": ">=10"
+    "node": ">=20"
   },
   "bin": {
     "offline-github-changelog": "./bin/offline-github-changelog"
